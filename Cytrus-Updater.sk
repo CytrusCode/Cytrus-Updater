@@ -1,0 +1,16 @@
+function getUpdate(script: string, version: string):
+	if directory path "plugins/Cytrus-Updater/%{_script}%" is missing:
+		create directory path "plugins/Cytrus-Updater/%{_script}%"
+	download from url "https://cdn.poldek.pages.dev/updater/%{_script}%/version.txt" to file path "plugins/Cytrus-updater/%{_script}%/version.txt"
+	set {_version-latest::*} to content of file path "plugins/Cytrus-Updater/%{_script}%/version.txt"
+	set {_version-local} to {_version}
+	delete file path "plugins/Cytrus-Updater/%{_script}%/version.txt"
+	if {_version-latest::*} is not equal to {_version-local}:
+		send "&8[&eCytrus-Updater&8]&7>> &fSkrypt: &e%{_script}% &fnie jest aktualny!" to console
+		send "&8[&eCytrus-Updater&8]&7>> &fTwoja wersja: &e%{_version-local}%" to console
+		send "&8[&eCytrus-Updater&8]&7>> &fNajnowsza wersja: &e%{_version-latest::*}%" to console
+		send "&8[&eCytrus-Updater&8]&7>> &fAby dokonac aktualizacji wejdz na: &9discord.cytruscode.pl" to console
+	else:
+		send "&8[&eCytrus-Updater&8]&7>> &fSkrypt: &e%{_script}% &fjest aktualny!" to console
+		
+		
