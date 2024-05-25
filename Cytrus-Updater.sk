@@ -1,7 +1,7 @@
 function getUpdate(script: string, version: string):
 	if directory path "plugins/Cytrus-Updater/%{_script}%" is missing:
 		create directory path "plugins/Cytrus-Updater/%{_script}%"
-	download from url "https://cdn.poldek.pages.dev/updater/%{_script}%/version.txt" to file path "plugins/Cytrus-updater/%{_script}%/version.txt"
+	download from url "http://cdn.cytruscode.pl/cdn/updater/%{_script}%/version.txt" to file path "plugins/Cytrus-updater/%{_script}%/version.txt"
 	set {_version-latest::*} to content of file path "plugins/Cytrus-Updater/%{_script}%/version.txt"
 	set {_version-local} to {_version}
 	delete file path "plugins/Cytrus-Updater/%{_script}%/version.txt"
